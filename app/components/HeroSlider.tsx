@@ -68,13 +68,13 @@ export default function HeroSlider({ slides }: HeroSliderProps) {
                 <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                   <a
                     href="#learn-more"
-                    className="inline-flex items-center justify-center rounded-[10px] border border-white/30 px-6 py-3 text-white transition-colors hover:bg-white/10"
+                    className="inline-flex items-center justify-center rounded-[10px] border border-teal/50 px-6 py-3 text-teal-500 transition-colors hover:bg-white/10"
                   >
                     Learn More
                   </a>
                   <a
                     href="#quote"
-                    className="inline-flex items-center justify-center rounded-[10px] bg-teal-500 px-6 py-3 font-medium text-white transition-colors hover:bg-teal-600"
+                    className="inline-flex items-center justify-center rounded-[10px] bg-teal-500 px-6 py-3 font-medium text-black transition-colors hover:bg-teal-600"
                   >
                     Get a Quote
                   </a>

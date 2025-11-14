@@ -8,18 +8,37 @@ const inter = Inter({
 export default function NeedHelpSection() {
   return (
     <section
-      className="relative py-16 md:py-24"
+      className="relative py-16 md:py-24 bg-white"
       style={{
-        // Layer 1: split background (left blue, right white)
-        // Layer 2: decorative image on top
-        backgroundImage:
-          "linear-gradient(to right, #023A62 0%, #0A6C8E 45%, #FFFFFF 45%, #FFFFFF 100%), url('/need-help.png')",
-        backgroundSize: "100% 100%, contain",
-        backgroundPosition: "center, right center",
-        backgroundRepeat: "no-repeat, no-repeat",
+        // Decorative image on the right
+        // (removed; using dots layer below and a blue panel)
+        backgroundSize: "contain",
+        backgroundPosition: "right center",
+        backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="mx-auto w-full max-w-7xl px-6">
+      {/* Dots background, peeking from the right side of the blue panel */}
+      <div
+        className="absolute inset-y-0 right-[270px] w-1/3 z-0"
+        style={{
+          backgroundImage: "url('/dots.png')",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "left center",
+          backgroundSize: "contain",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Left blue background occupying 2/3 width with rounded top-right corner */}
+      <div
+        className="absolute inset-y-0 left-0 w-2/3 rounded-tr-[100px] z-1"
+        style={{
+          background: "linear-gradient(to right, #0A6C8E 0%, #023A62 100%)",
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
           <div className="text-white">
             <h3 className="text-2xl font-semibold text-[#22C9C7] md:text-4xl">
@@ -32,7 +51,7 @@ export default function NeedHelpSection() {
             </p>
           </div>
 
-          <div className="rounded-[12px] bg-white p-6 shadow-lg md:p-8">
+          <div className=" bg-white p-6 shadow-lg md:p-8">
             <h4
               className={`${inter.className} mb-4 text-center text-lg font-semibold text-black md:text-xl`}
             >

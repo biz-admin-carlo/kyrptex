@@ -1,12 +1,43 @@
 "use client";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { Poppins } from "next/font/google";
 import HeroSlider from "./components/HeroSlider";
 import ServiceCard from "./components/ServiceCard";
 import WhyChooseUs from "./components/WhyChooseUs";
 import Testimonials from "./components/Testimonials";
 import ReputableInstitutions from "./components/ReputableInstitutions";
 import NeedHelpSection from "./components/NeedHelpSection";
+import NewsletterSection from "./components/NewsletterSection";
+import Footer from "./components/Footer";
 
 export default function Home() {
+  const [showPopup, setShowPopup] = useState(false);
+
+  // Show once per browser using localStorage flag
+  useEffect(() => {
+    try {
+      const flag = localStorage.getItem("kyrptex_popup_seen");
+      if (!flag) {
+        setTimeout(() => setShowPopup(true), 0);
+        localStorage.setItem("kyrptex_popup_seen", "1");
+      }
+    } catch {
+      // ignore storage errors
+      setTimeout(() => setShowPopup(true), 0);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (showPopup) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [showPopup]);
   const slides = [
     {
       key: "life",
@@ -90,6 +121,110 @@ export default function Home() {
 
   return (
     <>
+      {showPopup && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className="relative mx-auto w-4xl max-w-5xl overflow-hidden rounded-2xl bg-white shadow-2xl">
+            {/* Close */}
+            <button
+              aria-label="Close pop-up"
+              className="absolute right-3 top-3 z-10 inline-flex h-8 w-8 items-center justify-center rounded-full border border-black/20 bg-white text-black shadow-sm hover:bg-white"
+              onClick={() => setShowPopup(false)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="h-5 w-5"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 11-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </button>
+
+            <div className="grid grid-cols-1 md:grid-cols-8">
+              {/* Left image with overlayed heading */}
+              <div className="relative min-h-[380px] md:col-span-3">
+                <Image
+                  src="/pop-up.png"
+                  alt="Vacation webinar promotional"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div
+                  className="absolute inset-0 bg-black/20"
+                  aria-hidden="true"
+                />
+                <div className="absolute inset-0 flex flex-col justify-start px-6 pt-10 ">
+                  <h3 className="text-xl font-semi-bold  text-white md:text-xl">
+                    Your Free Vacation Awaits!
+                  </h3>
+                  <h4 className="mt-4 text-xl font-semi-bold  text-center text-white md:text-xl">
+                    Join Our Index Universal Life Webinar
+                  </h4>
+                </div>
+              </div>
+
+              {/* Right content */}
+              <div className="p-6 md:col-span-5 md:p-8">
+                <p className="text-sm text-black/80">
+                  Hello! I&apos;m thrilled to share an incredible opportunity
+                  with you: a complimentary vacation or cruise just for
+                  attending our Index Universal Life webinar. This isn’t your
+                  average webinar; it’s a transformative experience that can
+                  equip you with essential strategies to fund your
+                  children&apos;s college education, eliminate debt, and ensure
+                  a luxurious retirement.
+                </p>
+                <p className="mt-4 text-sm text-black/80">
+                  Rest assured, we don’t collect any personal information, and
+                  you will receive a vacation voucher valid for 18 months. This
+                  is your chance to access valuable insights that could
+                  profoundly reshape your financial future. I genuinely believe
+                  this experience will be gratifying for you. Let me help you
+                  embark on a journey that could enhance your life and lead you
+                  to a prosperous retirement! I want to share an exciting offer
+                  with you: a complimentary vacation or cruise for participating
+                  in our Index Universal Life webinar. This is more than just a
+                  webinar; it’s a chance to learn strategies that can secure
+                  your children&apos;s college education, get you out of debt,
+                  and help you enjoy a luxurious retirement.
+                </p>
+
+                {/* Email form */}
+                <form
+                  className="mt-6 space-y-3"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    setShowPopup(false);
+                  }}
+                >
+                  <input
+                    type="email"
+                    required
+                    placeholder="Enter you Email Address"
+                    className="w-full rounded-md border border-black/20 px-4 py-3 text-black outline-none placeholder:text-black/40"
+                  />
+                  <button
+                    type="submit"
+                    className="inline-flex h-[48px] w-full items-center justify-center rounded-md bg-teal-500 font-semibold text-white transition-colors hover:bg-teal-600"
+                  >
+                    SIGN ME UP!
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       <HeroSlider slides={slides} />
 
       {/* Services */}
@@ -126,6 +261,10 @@ export default function Home() {
       <ReputableInstitutions />
 
       <NeedHelpSection />
+
+      <NewsletterSection />
+
+      <Footer />
     </>
   );
 }
