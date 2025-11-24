@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Poppins } from "next/font/google";
 import HeroSlider from "./components/HeroSlider";
 import ServiceCard from "./components/ServiceCard";
 import WhyChooseUs from "./components/WhyChooseUs";
@@ -86,36 +85,42 @@ export default function Home() {
       description: "Secure your family’s future with lasting protection.",
       cta: "Learn More >>>",
       icon: "/lifw.png",
+      href: "/services/life-insurance",
     },
     {
       title: "Health Insurance",
       description: "Affordable coverage for your health and peace of mind.",
       cta: "Learn More >>>",
       icon: "/health.png",
+      href: "/services/health-insurance",
     },
     {
       title: "Accident Insurance",
       description: "Stay protected and confident in every situation.",
       cta: "Learn More >>>",
       icon: "/accident.png",
+      href: "/services/accident-insurance",
     },
     {
       title: "Indexed Universal Life",
       description: "Grow savings while protecting your loved ones.",
       cta: "Learn More >>>",
       icon: "/IUL.png",
+      href: "/services/indexed-universal-life",
     },
     {
       title: "Annuities",
       description: "Turn your savings into steady lifetime income.",
       cta: "Learn More >>>",
       icon: "/ann-logo.png",
+      href: "/services/annuities",
     },
     {
       title: "Free Consultation",
       description: "Get expert guidance tailored to your needs.",
       cta: "Contact Us >>>",
       icon: "/con.png",
+      href: "/contact",
     },
   ];
 
@@ -123,11 +128,11 @@ export default function Home() {
     <>
       {showPopup && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 sm:p-6"
           role="dialog"
           aria-modal="true"
         >
-          <div className="relative mx-auto w-4xl max-w-5xl overflow-hidden rounded-2xl bg-white shadow-2xl">
+          <div className="relative mx-auto w-full max-w-lg overflow-hidden rounded-2xl bg-white shadow-2xl md:max-w-3xl">
             {/* Close */}
             <button
               aria-label="Close pop-up"
@@ -150,7 +155,7 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-8">
               {/* Left image with overlayed heading */}
-              <div className="relative min-h-[380px] md:col-span-3">
+              <div className="relative min-h-[260px] md:col-span-3 md:min-h-[380px]">
                 <Image
                   src="/pop-up.png"
                   alt="Vacation webinar promotional"
@@ -173,8 +178,8 @@ export default function Home() {
               </div>
 
               {/* Right content */}
-              <div className="p-6 md:col-span-5 md:p-8">
-                <p className="text-sm text-black/80">
+              <div className="max-h-[70vh] overflow-y-auto p-5 md:col-span-5 md:max-h-none md:p-8">
+                <p className="text-sm text-black/80 md:text-base">
                   Hello! I&apos;m thrilled to share an incredible opportunity
                   with you: a complimentary vacation or cruise just for
                   attending our Index Universal Life webinar. This isn’t your
@@ -183,7 +188,7 @@ export default function Home() {
                   children&apos;s college education, eliminate debt, and ensure
                   a luxurious retirement.
                 </p>
-                <p className="mt-4 text-sm text-black/80">
+                <p className="mt-4 text-sm text-black/80 md:text-base">
                   Rest assured, we don’t collect any personal information, and
                   you will receive a vacation voucher valid for 18 months. This
                   is your chance to access valuable insights that could
@@ -201,13 +206,16 @@ export default function Home() {
                 {/* Email form */}
                 <form
                   className="mt-6 space-y-3"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    setShowPopup(false);
+                  action="mailto:annatcorcino@yahoo.com"
+                  method="POST"
+                  encType="text/plain"
+                  onSubmit={() => {
+                    setTimeout(() => setShowPopup(false), 500);
                   }}
                 >
                   <input
                     type="email"
+                    name="Email"
                     required
                     placeholder="Enter you Email Address"
                     className="w-full rounded-md border border-black/20 px-4 py-3 text-black outline-none placeholder:text-black/40"
@@ -245,7 +253,7 @@ export default function Home() {
 
           <div className="my-12 flex items-center justify-center md:mt-16">
             <a
-              href="#quote"
+              href="/contact"
               className="inline-flex h-[69px] w-[199px] items-center justify-center rounded-[10px] bg-teal-400 font-semibold text-[24px] text-black transition-colors hover:bg-teal-500"
             >
               Get a Quote

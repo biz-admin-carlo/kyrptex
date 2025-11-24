@@ -42,7 +42,7 @@ const testimonials: Testimonial[] = [
 
 export default function Testimonials() {
   // Duplicate items twice for seamless marquee loop
-  const items = [...testimonials, ...testimonials];
+  const items = testimonials;
 
   return (
     <section
@@ -60,11 +60,11 @@ export default function Testimonials() {
       </div>
       {/* Full-bleed infinite marquee from window edges */}
       <div className="relative left-1/2 -translate-x-1/2 w-screen overflow-hidden">
-        <div className="marquee flex gap-12 will-change-transform">
+        <div className="marquee flex gap-6 md:gap-12 will-change-transform">
           {items.map((t, idx) => (
             <div
               key={`${t.name}-${idx}`}
-              className="w-[420px] h-[300px] shrink-0 rounded-[16px] bg-white pt-8 px-8 text-center text-black shadow-md"
+              className="w-[300px] shrink-0 rounded-[16px] bg-white px-6 pt-8 text-center text-black shadow-md sm:w-[360px] md:w-[420px] md:px-8"
             >
               <div className="mb-4 flex items-center justify-center">
                 <div className="relative h-8 w-8">
@@ -76,7 +76,7 @@ export default function Testimonials() {
                   />
                 </div>
               </div>
-              <div className="flex flex-col justify-between h-[200px]">
+              <div className="flex flex-col justify-between gap-4">
                 <p className="text-sm text-black/80">{t.quote}</p>
                 <div>
                   <p className="font-semibold">{t.name}</p>
@@ -88,7 +88,7 @@ export default function Testimonials() {
           {items.map((t, idx) => (
             <div
               key={`dup-${t.name}-${idx}`}
-              className="w-[420px] shrink-0 rounded-[16px] bg-white p-8 text-center text-black shadow-md"
+              className="w-[300px] shrink-0 rounded-[16px] bg-white px-6 pt-8 text-center text-black shadow-md sm:w-[360px] md:w-[420px] md:px-8"
             >
               <div className="mb-4 flex items-center justify-center">
                 <div className="relative h-8 w-8">
@@ -100,7 +100,7 @@ export default function Testimonials() {
                   />
                 </div>
               </div>
-              <div className="flex flex-col justify-between h-[200px]">
+              <div className="flex flex-col justify-between gap-4">
                 <p className="text-sm text-black/80">{t.quote}</p>
                 <div>
                   <p className="font-semibold">{t.name}</p>
@@ -112,8 +112,15 @@ export default function Testimonials() {
         </div>
         <style jsx>{`
           .marquee {
-            animation: marquee-scroll 30s linear infinite;
+            animation: marquee-scroll 12s linear infinite;
           }
+
+          @media (max-width: 768px) {
+            .marquee {
+              animation-duration: 8s;
+            }
+          }
+
           @keyframes marquee-scroll {
             0% {
               transform: translateX(0);

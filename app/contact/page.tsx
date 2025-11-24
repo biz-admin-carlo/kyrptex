@@ -100,7 +100,7 @@ export default function ContactPage() {
                 General Inquiries
               </p>
               <p className="mt-2 text-sm text-black underline">
-                annatcrocino@yahoo.com
+                annatcorcino@yahoo.com
               </p>
             </div>
           </div>
@@ -126,7 +126,12 @@ export default function ContactPage() {
             <h3 className="mb-4 text-center text-base font-semibold tracking-wide text-black md:text-lg">
               CONTACT FORM
             </h3>
-            <form className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-x-6">
+            <form
+              className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-x-6"
+              action="mailto:annatcorcino@yahoo.com"
+              method="POST"
+              encType="text/plain"
+            >
               {/* Full Name */}
               <div>
                 <label className="mb-1 block text-sm font-medium text-black">
@@ -134,6 +139,7 @@ export default function ContactPage() {
                 </label>
                 <input
                   type="text"
+                  name="Full Name"
                   className="w-full rounded-md border border-black/20 px-3 py-2 text-black outline-none focus:border-teal-500"
                   placeholder="e.g. John Doe"
                 />
@@ -145,6 +151,7 @@ export default function ContactPage() {
                 </label>
                 <div className="relative">
                   <select
+                    name="Subject"
                     className="w-full appearance-none rounded-md border border-black/20 bg-white px-3 py-2 text-black outline-none focus:border-teal-500"
                     defaultValue=""
                   >
@@ -180,6 +187,7 @@ export default function ContactPage() {
                 </label>
                 <input
                   type="email"
+                  name="Email"
                   className="w-full rounded-md border border-black/20 px-3 py-2 text-black outline-none focus:border-teal-500"
                   placeholder="e.g. name@example.com"
                 />
@@ -190,6 +198,7 @@ export default function ContactPage() {
                   Message <span className="text-red-500">*</span>
                 </label>
                 <textarea
+                  name="Message"
                   className="h-40 w-full resize-y rounded-md border border-black/20 px-3 py-2 text-black outline-none focus:border-teal-500"
                   placeholder="How can we help?"
                 />
@@ -201,13 +210,14 @@ export default function ContactPage() {
                 </label>
                 <input
                   type="tel"
+                  name="Phone"
                   className="w-full rounded-md border border-black/20 px-3 py-2 text-black outline-none focus:border-teal-500"
                   placeholder="e.g. (555) 555-5555"
                 />
               </div>
               <div className="md:col-span-2">
                 <button
-                  type="button"
+                  type="submit"
                   className="inline-flex h-[44px] w-full items-center justify-center rounded-md bg-teal-500 font-semibold text-white transition-colors hover:bg-teal-600"
                 >
                   Submit

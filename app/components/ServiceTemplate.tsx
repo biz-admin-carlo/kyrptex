@@ -146,7 +146,7 @@ export default function ServiceTemplate({
             <p className="text-2xl font-semibold text-[#22C9C7] md:text-4xl">
               {quoteHeading}
             </p>
-            <h3 className="mt-2 text-5xl font-semibold text-white md:text-3xl">
+            <h3 className="mt-2 text-lg font-semibold text-white md:text-2xl lg:text-3xl">
               {quoteSubheading}
             </h3>
             <p className="mt-2 text-xs text-white/80 md:text-sm">{quoteBody}</p>
@@ -157,13 +157,19 @@ export default function ServiceTemplate({
             <h4 className="mb-4 text-center text-lg font-semibold text-black md:text-xl">
               Book an Appointment
             </h4>
-            <form className="space-y-4">
+            <form
+              className="space-y-4"
+              action="mailto:annatcorcino@yahoo.com"
+              method="POST"
+              encType="text/plain"
+            >
               <div>
                 <label className="mb-1 block text-sm font-medium text-black">
                   Full Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
+                  name="Full Name"
                   placeholder="e.g. John Doe"
                   className="w-full rounded-md border border-black/20 px-3 py-2 text-black outline-none placeholder:text-transparent focus:border-teal-500"
                 />
@@ -177,6 +183,7 @@ export default function ServiceTemplate({
                 </label>
                 <input
                   type="email"
+                  name="Email"
                   placeholder="e.g. name@example.com"
                   className="w-full rounded-md border border-black/20 px-3 py-2 text-black outline-none placeholder:text-transparent focus:border-teal-500"
                 />
@@ -185,7 +192,7 @@ export default function ServiceTemplate({
                 </p>
               </div>
               <button
-                type="button"
+                type="submit"
                 className="inline-flex h-[44px] w-full items-center justify-center rounded-md bg-teal-500 font-semibold text-white transition-colors hover:bg-teal-600"
               >
                 Submit

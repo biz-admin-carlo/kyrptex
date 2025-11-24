@@ -31,7 +31,7 @@ export default function HeroSlider({ slides }: HeroSliderProps) {
   }, [slides.length]);
 
   return (
-    <section className="relative min-h-[80vh] overflow-hidden md:min-h-screen">
+    <section className="relative w-screen min-h-[80vh] overflow-hidden md:min-h-screen">
       <div className="absolute inset-0 overflow-hidden">
         <div
           className="flex h-full transition-transform duration-700 ease-out"
@@ -42,7 +42,7 @@ export default function HeroSlider({ slides }: HeroSliderProps) {
           {slides.map((slide, index) => (
             <div
               key={slide.key}
-              className="relative h-full min-w-full flex-none bg-[#023A62]"
+              className="relative h-full w-screen flex-none bg-[#023A62]"
             >
               <Image
                 src={slide.image}
@@ -51,29 +51,29 @@ export default function HeroSlider({ slides }: HeroSliderProps) {
                 className="object-cover"
                 priority={index === 0}
               />
-              <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center md:px-12">
-                <p className="text-2xl font-semibold tracking-tight text-[#22C9C7] md:text-6xl">
+              <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center sm:px-6 md:px-12">
+                <p className="text-xl font-semibold tracking-tight text-[#22C9C7] sm:text-2xl md:text-4xl lg:text-6xl">
                   {slide.title}
                 </p>
                 <h1
-                  className={`${inter.className} mt-3 max-w-5xl text-4xl font-extrabold tracking-tight text-white md:mt-4 md:text-5xl lg:text-7xl`}
+                  className={`${inter.className} mt-3 max-w-5xl text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:mt-4 md:text-5xl lg:text-7xl`}
                 >
                   {slide.headline ?? "Explore Our Coverage Options"}
                 </h1>
                 {slide.subtext ? (
-                  <h3 className="mx-auto mt-6 max-w-5xl text-lg font-semibold text-white/85 md:text-xl">
+                  <h3 className="mx-auto mt-4 max-w-5xl text-base font-semibold text-white/85 sm:mt-6 sm:text-lg md:text-xl">
                     {slide.subtext}
                   </h3>
                 ) : null}
                 <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                   <a
-                    href="#learn-more"
+                    href="/about"
                     className="inline-flex items-center justify-center rounded-[10px] border border-teal/50 px-6 py-3 text-teal-500 transition-colors hover:bg-white/10"
                   >
                     Learn More
                   </a>
                   <a
-                    href="#quote"
+                    href="/contact"
                     className="inline-flex items-center justify-center rounded-[10px] bg-teal-500 px-6 py-3 font-medium text-black transition-colors hover:bg-teal-600"
                   >
                     Get a Quote

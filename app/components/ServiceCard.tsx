@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Inter } from "next/font/google";
 
 type Service = {
@@ -6,6 +7,7 @@ type Service = {
   description: string;
   cta: string;
   icon?: string;
+  href?: string;
 };
 
 type ServiceCardProps = {
@@ -19,11 +21,12 @@ const inter = Inter({
 
 export default function ServiceCard({ service }: ServiceCardProps) {
   return (
-    <div
-      className={`${inter.className} group flex h-[400px] w-[300px] flex-col items-center justify-center gap-6 rounded-[16px] bg-white p-6 text-center shadow-sm shadow-black/10 transition-colors duration-200 hover:bg-[#22C9C7]`}
+    <Link
+      href={service.href ?? "#"}
+      className={`${inter.className} group flex w-full max-w-xs flex-col items-center justify-center gap-6 rounded-[16px] bg-white p-6 text-center shadow-sm shadow-black/10 transition-colors duration-200 hover:bg-[#22C9C7] sm:max-w-sm`}
     >
       <div>
-        <div className="mx-auto mb-6 flex h-32 w-32 items-center justify-center rounded-[16px relative">
+        <div className="relative mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-[16px] sm:h-24 sm:w-24 md:h-28 md:w-28">
           {service.icon ? (
             <Image
               src={service.icon}
@@ -46,18 +49,15 @@ export default function ServiceCard({ service }: ServiceCardProps) {
             </svg>
           )}
         </div>
-        <h3 className="text-lg font-semibold text-black  md:text-xl">
+        <h3 className="text-lg font-semibold text-black md:text-xl">
           {service.title}
         </h3>
         <p className="mt-2 text-sm text-black/70 ">{service.description}</p>
       </div>
 
-      <a
-        href="#"
-        className="mt-6 inline-block text-sm font-medium text-[#023A62] underline-offset-4 hover:underline "
-      >
+      <span className="mt-6 inline-block text-sm font-medium text-[#023A62] underline-offset-4 group-hover:underline">
         {service.cta}
-      </a>
-    </div>
+      </span>
+    </Link>
   );
 }

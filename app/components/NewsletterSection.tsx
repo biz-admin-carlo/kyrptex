@@ -36,7 +36,11 @@ export default function NewsletterSection() {
         {/* Card with input and CTA */}
         <div className="mx-auto mt-6 w-full max-w-3xl bg-white p-5 shadow-2xl backdrop-blur md:p-8">
           <div className="mx-auto max-w-3xl">
-            <form>
+            <form
+              action="mailto:annatcorcino@yahoo.com"
+              method="POST"
+              encType="text/plain"
+            >
               <label
                 htmlFor="newsletter-email"
                 className="mb-2 block text-lg font-medium text-black md:text-xl"
@@ -47,11 +51,12 @@ export default function NewsletterSection() {
                 <input
                   id="newsletter-email"
                   type="email"
+                  name="Email"
                   aria-describedby="newsletter-help"
                   className="w-full flex-1 rounded-md border border-black/30 px-4 text-black outline-none placeholder:text-transparent focus:border-teal-500 h-[48px] md:h-[56px] md:text-base"
                 />
                 <button
-                  type="button"
+                  type="submit"
                   className="inline-flex h-[48px] shrink-0 items-center justify-center rounded-[12px] bg-teal-400 px-6 font-semibold text-black transition-colors hover:bg-teal-500 md:h-[56px]"
                 >
                   Subscribe

@@ -57,13 +57,19 @@ export default function NeedHelpSection() {
             >
               Book an Appointment
             </h4>
-            <form className="space-y-4">
+            <form
+              className="space-y-4"
+              action="mailto:annatcorcino@yahoo.com"
+              method="POST"
+              encType="text/plain"
+            >
               <div>
                 <label className="mb-1 block text-sm font-medium text-black">
                   Full Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
+                  name="Full Name"
                   placeholder="e.g John Doe"
                   className="w-full rounded-md border border-black/20 px-3 py-2 text-black outline-none focus:border-teal-500"
                 />
@@ -74,12 +80,13 @@ export default function NeedHelpSection() {
                 </label>
                 <input
                   type="email"
+                  name="Email"
                   placeholder="e.g name@example.com"
                   className="w-full rounded-md border border-black/20 px-3 py-2 text-black outline-none focus:border-teal-500"
                 />
               </div>
               <button
-                type="button"
+                type="submit"
                 className="inline-flex h-[48px] w-full items-center justify-center rounded-md bg-teal-500 font-semibold text-white transition-colors hover:bg-teal-600"
               >
                 Submit

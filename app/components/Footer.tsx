@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -71,28 +72,28 @@ export default function Footer() {
               <h4 className="text-2xl font-semibold">Help</h4>
               <ul className="mt-6 space-y-1">
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    href="/contact"
                     className="text-white transition-colors hover:text-teal-300"
                   >
                     Contact Us
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#quote"
+                  <Link
+                    href="/contact"
                     className="text-white transition-colors hover:text-teal-300"
                   >
                     Get a Quote
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    href="/contact"
                     className="text-white transition-colors hover:text-teal-300"
                   >
                     Book an Appointment
-                  </a>
+                  </Link>
                 </li>
               </ul>
               <ul className="mt-8 space-y-1">
@@ -120,28 +121,28 @@ export default function Footer() {
               <h4 className="text-2xl font-semibold">Quick Links</h4>
               <ul className="mt-6 space-y-1">
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    href="/about"
                     className="text-white transition-colors hover:text-teal-300"
                   >
                     About Us
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#services"
+                  <Link
+                    href="/#services"
                     className="text-white transition-colors hover:text-teal-300"
                   >
                     Services
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    href="/contact"
                     className="text-white transition-colors hover:text-teal-300"
                   >
                     Claims
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

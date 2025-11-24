@@ -37,12 +37,16 @@ export default function ReputableInstitutions() {
           Trusted by Reputable Institutions
         </h2>
 
-        <div className="mx-auto grid max-w-5xl grid-cols-2 items-center justify-items-center gap-x-16 gap-y-12 md:gap-x-28 md:gap-y-16">
+        <div className="mx-auto grid max-w-5xl grid-cols-2 items-center justify-items-center gap-x-6 gap-y-8 sm:gap-x-10 sm:gap-y-10 md:gap-x-16 md:gap-y-16">
           {logos.map((logo) => (
             <div
               key={logo.alt}
-              className="relative"
-              style={{ width: `${logo.w}px`, height: `${logo.h}px` }}
+              className="relative w-full"
+              style={{
+                width: "100%",
+                maxWidth: `${logo.w}px`,
+                height: `${logo.h}px`,
+              }}
               aria-label={logo.alt}
               title={logo.alt}
             >
@@ -50,7 +54,7 @@ export default function ReputableInstitutions() {
                 src={logo.src}
                 alt={logo.alt}
                 fill
-                sizes={`${logo.w}px`}
+                sizes="(min-width: 1024px) 220px, (min-width: 640px) 40vw, 45vw"
                 className="object-contain"
                 priority={false}
               />

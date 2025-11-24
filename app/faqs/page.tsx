@@ -74,7 +74,7 @@ export default function FAQsPage() {
                 {/* teal line first */}
                 <div className="mb-3 h-[2px] w-full bg-[#22C9C7]" />
                 {/* accordion body */}
-                <details open className="group">
+                <details className="group">
                   <summary className="flex cursor-pointer list-none items-start justify-between gap-4">
                     <span className="text-[15px] font-semibold text-black md:text-[16px]">
                       {item.q}
@@ -83,7 +83,7 @@ export default function FAQsPage() {
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                       fill="currentColor"
-                      className="mt-1 h-4 w-4 text-[#22C9C7] transition-transform duration-200 group-open:rotate-180"
+                      className="mt-1.5 h-5 w-5 flex-shrink-0 text-[#22C9C7] transition-transform duration-200 group-open:rotate-180"
                       aria-hidden="true"
                     >
                       <path
