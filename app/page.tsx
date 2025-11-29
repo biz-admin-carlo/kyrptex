@@ -128,7 +128,7 @@ export default function Home() {
     <>
       {showPopup && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 sm:p-6"
+          className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-black/60 p-4 sm:flex sm:items-center sm:p-6"
           role="dialog"
           aria-modal="true"
         >
