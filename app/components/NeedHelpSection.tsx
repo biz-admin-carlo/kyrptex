@@ -19,7 +19,7 @@ export default function NeedHelpSection() {
     >
       {/* Dots background, peeking from the right side of the blue panel */}
       <div
-        className="absolute inset-y-0 right-[270px] w-1/3 z-0"
+        className="absolute inset-y-0 right-[270px] z-0 hidden w-1/3 md:block"
         style={{
           backgroundImage: "url('/dots.png')",
           backgroundRepeat: "no-repeat",
@@ -29,9 +29,11 @@ export default function NeedHelpSection() {
         aria-hidden="true"
       />
 
-      {/* Left blue background occupying 2/3 width with rounded top-right corner */}
+      {/* Left blue background with gradient.
+          - Mobile: full-width rounded panel behind content
+          - Desktop: 2/3 width panel with larger rounded corner */}
       <div
-        className="absolute inset-y-0 left-0 w-2/3 rounded-tr-[100px] z-1"
+        className="absolute inset-0 left-0 z-1 w-full rounded-tr-[80px] md:inset-y-0 md:w-2/3 md:rounded-tr-[100px]"
         style={{
           background: "linear-gradient(to right, #0A6C8E 0%, #023A62 100%)",
         }}
@@ -51,7 +53,7 @@ export default function NeedHelpSection() {
             </p>
           </div>
 
-          <div className=" bg-white p-6 shadow-lg md:p-8">
+          <div className="mt-6 rounded-2xl bg-white p-6 shadow-lg md:mt-0 md:p-8">
             <h4
               className={`${inter.className} mb-4 text-center text-lg font-semibold text-black md:text-xl`}
             >
