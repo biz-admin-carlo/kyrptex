@@ -17,7 +17,7 @@ export default function NeedHelpSection() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Dots background, peeking from the right side of the blue panel */}
+      {/* Dots background, peeking from the right side of the blue paneld */}
       <div
         className="absolute inset-y-0 right-[270px] z-0 hidden w-1/3 md:block"
         style={{
